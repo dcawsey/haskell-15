@@ -1,7 +1,9 @@
 import System.Environment   
 import Data.List  
+import Data.Text (splitOn)
 
 main = do  
     args <- getArgs                  -- IO [String]
-    putStrLn "The arguments are:"  
-    mapM putStrLn args  
+    let inputString = head args -- args !! <index>
+    let listOfWords = splitOn " " inputString
+    print listOfWords
