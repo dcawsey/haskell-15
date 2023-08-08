@@ -4,10 +4,14 @@ import Data.List
 import Data.Text (splitOn, pack, unpack)
 
 main = do
-    args <- getArgs                  -- IO [String]
-    let inputString = head args -- args !! <index>
-    let inputText = pack inputString
+    args <- getArgs
+    let firstArg = head args
+    let inputText = pack firstArg
+
     let listOfWords = splitOn " " inputText
-    let reverseListOfWords = reverse listOfWords
+    let listofWordStrings = map unpack listOfWords   
+
+    let reverseListOfWords = reverse listofWordStrings
     let reversedString = unwords reverseListOfWords
-    print reverseListOfWords
+
+    print reversedString
